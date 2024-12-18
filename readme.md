@@ -27,7 +27,7 @@
     * You can sort all todo list items by their deadline - List Page is filtered by upcoming deadlines
     * You can view a list containing only overdue todo list items: "Overdue" table in "List" page
 ## Initialization of Website
-1. Run on CSE Machine
+1. Run on local Machine
 2. In terminal type "npm install" to install all library
 3. In terminal type "node server.js"
 4. Go to "http://localhost:4131/"
