@@ -1,0 +1,376 @@
+/* Importing Font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+/* Removing Margin and Padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------- Navigation Related ---------------------------- */
+nav {                                           /* Setting font and making sure nav fills the upper screen using flex */
+    font-family: "Roboto Mono", monospace;
+    font-size: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    height: 4em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #157241;
+}
+nav a{                                          /* layout of nagivation button */
+    height: 75%;
+    font-size: 2em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+nav form{                                       /* layout for search forms */
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 5%;
+    justify-content: flex-start;
+}
+nav form *{                                     /* Search form text color and font changes */
+    color: #75B855;
+    font-family: "Roboto Mono", monospace;
+}
+
+nav #login {                                    /* Make Login red */
+    color: #DB6161;
+}
+
+/* Nav Mouse Interaction */                     /* makes sure there is no purple or underline for links */
+nav a:link { 
+    color: #75B855;
+    text-decoration: none;
+}
+nav a:visited {
+    color: #75B855;
+    text-decoration: none;
+}
+nav a:hover {                                   /* Extra Credit */
+    background-color: #2a5815;
+    color: #75B855;
+}
+nav form input[type="submit"]:hover {           /* Extra credit */
+    background-color: #2a5815;
+    color: #75B855;
+}
+/* For Sign In Specifically */
+nav .login:link { 
+    color: #DB6161;
+    text-decoration: none;
+}
+nav .login:visited {
+    color: #DB6161;
+    text-decoration: none;
+}
+nav .login:hover {                                   /* Extra Credit */
+    background-color: #2a5815;
+    color: #DB6161;
+}
+/* ---------------------------- Input Related ---------------------------- */
+input {
+    font-family: "Roboto Mono", monospace;
+}
+/* ---------------------------- Page Layout ---------------------------- */
+body{
+    background-color: #AD3838;
+    font-family: "Merriweather", serif;         /* general fonting */
+}
+
+/* ---------------------------- Todo List Page ---------------------------- */
+.listingOver{                                   /* Getting Overdue header big */
+    text-align: center;
+    font-size: 3em;
+    color: #8e2424;
+}
+.listingComing{                                 /* Getting Up-Coming header big */
+    text-align: center;
+    font-size: 3em;
+    color: #8e2424;
+}
+.main{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-content: center;
+    background-color: #DB6161;
+    flex-wrap: wrap;
+    margin-top: 20vh;
+    font-family: "Roboto Mono", monospace;
+}
+/* ---------------------------- Overdue Table ---------------------------- */
+/*
+Hierarchy:
+    .overdueTable: Contains the table
+        table:
+            thead
+                tr
+                    th
+            tbody
+                tr
+                    td
+*/
+.overdueTable{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 80%;
+}
+/* ---------------------------- Up-Coming Table ---------------------------- */
+.comingTable{                                  /* Centering Table */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 2em;
+}
+/* ---------------------------- Table Buttons ---------------------------- */
+input.check{
+    width: 3em;
+    height: 3em;
+}
+td.delete input{
+    width: 3em;
+    height: 3em;
+}
+input#add.add{
+    width: 3em;
+    height: 3em;
+    margin-right: 35%;
+}
+/* ---------------------------- Adding Todo Form ---------------------------- */
+.adding{                        /* Box for add form */
+    border-radius: 1em;
+    background-color: #75B855;
+    margin-bottom: 1em;
+}
+.addForm{                       /* Form Display Flex */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2%;
+    flex-wrap: wrap;
+    font-family: "Roboto Mono", monospace;
+}
+                                /* Form Looks */
+form .addName{
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.addName input{
+    height: 2em;
+}
+form .addTime{
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.addTime input{
+    height: 2em;
+}
+form .addDesc{
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.addDesc textarea{
+    height: 100%;
+}
+form .addCategory{
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0%
+}
+.addCategory select{
+    height: 2em;
+}
+.other input{
+    height: 2em;
+}
+form .addSubmit{
+    flex-basis: 100%;
+}
+/* ---------------------------- General Table ---------------------------- */
+table{                            /* Removing Table Border with good width */
+    border-collapse: collapse;
+    font-family: "Roboto Mono", monospace;
+}
+thead{                            /* Making Table heading a diff background with adjusted height and text left */
+    background-color: #447d29;
+    height: 3em;
+    text-align: left;
+}
+th, td{                                         /* Makes sure table text doesn't go off the table */
+    padding: 1em;
+}
+table tbody tr:nth-child(even){         /* Alternating Colors */
+    height: 3em;
+    background-color: #447d29;
+}
+table tbody tr:nth-child(odd){          /* Alternating Colors */
+    height: 3em;
+    background-color: #75B855;
+}
+.delete input{
+    color: #4056A1;
+    height: 3em;
+}
+table a:link {                          /* Removes underlining and purple links */
+    color: #000000;
+    text-decoration: none;
+}
+table a:visited {                       /* Removes underlining and purple links */
+    color: #000000;
+    text-decoration: none;
+}
+
+/* ---------------------------- Category  ---------------------------- */
+.Category{
+    text-align: center;
+    font-size: 3em;
+    color: #8e2424;
+}
+.CategoryTable{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 40%;
+    margin-bottom: 2em;
+}
+
+/* ---------------------------- Todo Page  ---------------------------- */
+.Todo{
+    text-align: center;
+    font-size: 3em;
+    color: #8e2424;
+}
+.infoContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 90%;
+    gap: 3em;
+    margin-bottom: 2em;
+}
+/* ---------------------------- Todo Info Stuff  ---------------------------- */
+.infoContainer .info{
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    background-color: #75B855;
+    flex-basis: 20%;
+    padding: 2em;
+}
+.changeCategoryForm {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: wrap;
+    gap: .25em;
+    font-family: "Roboto Mono", monospace;
+}
+select{
+    font-family: "Roboto Mono", monospace;
+}
+.changeCategoryForm .other input{
+    height: 50%;
+}
+/* ---------------------------- Todo Description Stuff  ---------------------------- */
+.description{
+    background-color: #75B855;
+    flex-basis: 65%;
+    padding: 2em;
+}
+.description .descChange{
+    width: 90%;
+    height: 50%;
+}
+
+/* ---------------------------- Todo Comment Stuff  ---------------------------- */
+.comments{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 1em;
+    width: 50%;
+    padding: 2em;
+}
+.comments .addComment{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    background-color: #75B855;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+.comments .commentContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #75B855;
+    padding: 2em;
+    border-radius: 1em;
+}
+.commentContainer input{
+    height: 5%;
+    width: 5%;
+}
+.commentContainer p{
+    flex-basis: 90%;
+}
+
+/* ---------------------------- Login Page  ---------------------------- */
+h1.account{
+    text-align: center;
+    font-size: 3em;
+    color: #8e2424;
+}
+.create{
+    display: flex;
+    flex-direction: column;
+    background-color: #75B855;
+    padding: 2em;
+    margin-bottom: 4em;
+}
+.create form p{
+    text-align: center;
+}
+.create form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.create form .accountOption{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+}
+/* ---------------------------- Account Page  ---------------------------- */
+.signout{
+    margin-bottom: 2em;
+}
+/* ---------------------------- Highlight Table Anchor  ---------------------------- */
+td a{
+    background-color: rgb(77, 227, 122);
+}

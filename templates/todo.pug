@@ -1,0 +1,53 @@
+doctype html
+include mixin_nav.pug
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Watermelon Todo
+  link(href='/css/main.css' rel='stylesheet')
+  script(src='/js/todo.js')
++nav(category, username)
+
+body
+.main
+    h1.Todo #{information.name}
+    .todoId(hidden) #{information.id}
+    .infoContainer
+        .info
+            .todoDeadline
+                p Deadline: #{information.deadline}
+            .todoCategory
+                p Category: #{information.category}
+            .todoStatus 
+                p Status: 
+                    b.status #{information.status}
+            .changeCategoryForm 
+                label(for='category') Category:
+                select#category.input(name='category' required)
+                    option(value='All') All Category
+                    each cat in category
+                        if (cat.category != "All")
+                            option(value=cat.category) #{cat.category}
+                    option(value='Other') Other
+                .other(hidden='')
+                    p.hiddenOther(hidden='')
+                        label.hidden(hidden='') Other:
+                        br
+                        input#other.hidden(type='text' name='other' hidden='')
+                input.submit(type='submit' value='Change Category')
+        .description
+            input.option(type='image' src='/images/option.png' alt="option" value='option')
+            p.desc #{information.description}
+            p
+                textarea.descChange(hidden name='description' rows='3' cols='30' placeholder=information.description) #{information.description}
+                input.descSubmit(hidden type='submit' value='Change Description')
+    .comments
+        .addComment
+            textarea.addCommentText(name='comment' rows='3' cols='30' placeholder="Insert Comment")
+            input.commentSubmit(type='submit' value='Add Comment')
+        each comment in comments
+            .commentContainer
+                p.commentBox #{comment.comment}
+                input.deleteComment(type='image' src='/images/delete.png' alt="delete" value='delete')
+

@@ -1,0 +1,27 @@
+doctype html
+include mixin_nav.pug
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Watermelon Sign In
+  link(href='/css/main.css' rel='stylesheet')
+  script(src='/js/login.js')
++nav(category, username)
+
+body
+.main
+    h1.account Sign In / Sign Up
+    .create
+        form#createForm.createForm(action='/' method='GET')
+            p
+                label(for='username') Username:
+                br
+                input.username(type='text' name='username')
+            p
+                label(for='password') Password:
+                br
+                input.password(type='password' name='password')
+            .accountOption
+                input.loginAccount(type='submit' value="Log in")
+                input.registerAccount(type='submit' value="Sign Up")

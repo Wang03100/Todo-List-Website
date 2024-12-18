@@ -1,0 +1,20 @@
+mixin nav(category, username)
+    nav
+        a(href='/') List
+        a(href='/category') Category
+        form(action='/' method='GET')
+            input(name='query' type='Search' placeholder='Search Todo')
+            select(name='category')
+                option(value='') All Category
+                each cat in category
+                    option(value=cat.category) #{cat.category}
+            select(name='status')
+                option(value='') All
+                option(value='Done') Done
+                option(value='Not-Done') Not-Done
+                option(value='Overdue') Overdue
+            input(type='submit' value='Search')
+        if (username != "")
+            a.login(href='/account') #{username}
+        else
+            a.login(href='/login') Sign In / Sign Up

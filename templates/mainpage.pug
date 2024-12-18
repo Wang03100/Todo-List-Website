@@ -1,0 +1,97 @@
+doctype html
+include mixin_nav.pug
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Watermelon Todo
+  link(href='/css/main.css' rel='stylesheet')
+  script(src='/js/main.js')
++nav(category, username)
+
+body
+.main
+  h1.listingOver Overdue List
+  .overdueTable
+    table
+      thead
+        tr
+          th Check
+          th Name
+          th Category
+          th Deadline
+          th Status
+          th Delete
+          th(hidden='') Hidden Id
+      tbody
+          each item in list
+            if item.status == "Overdue"
+              tr.hover
+                td
+                  input.check(type="checkbox" name="check" id="check")
+                td
+                  a(href="/todo/" + item.id) #{item.name}
+                td #{item.category}
+                td.tableDate #{item.deadline}
+                td.status #{item.status}
+                td.delete
+                  input(type='image' src='/images/delete.png' alt="delete" value='Delete')
+                td.todoId(hidden='') #{item.id}
+  h1.listingComing Up Coming List
+  input#add.add(type='image' src='/images/plus.png' alt="add" value='add')
+  .adding(hidden='')
+    form#addForm.addForm(action='/api/addTodo' method='POST' hidden='')
+      p.addName(hidden='')
+        label(hidden='') Todo:
+        input(type='text' name='name' hidden='' required)
+      p.addTime(hidden='')
+        label(hidden='') Deadline:
+        input#time.input(type='date' name='deadline' hidden='' required)
+      p.addDesc(hidden='')
+        label(hidden='') Comment:
+        textarea(name='desc' rows='3' cols='30' placeholder='Comment' hidden='' required)
+      .addCategory(hidden='')
+        p.addCategory(hidden='')
+          label(for='category' hidden='') Category:
+          select#category.input(name='category' hidden='' required)
+            option(value='All' hidden='') All Category
+            each cat in category
+              option(value=cat.category) #{cat.category}
+            option(value='Other' hidden='') Other
+        .other(hidden='')
+          p.hiddenOther(hidden='')
+            label.hidden(hidden='') Other:
+            input#other.hidden(type='text' name='other' hidden='')
+      input#addSubmit.addSubmit(type='submit' value='Submit' hidden='')
+  .keepHidden
+    //change hidden stuff
+    input#stayHidden(type='number' name='bidId' value="1" hidden='')
+    input#stayHidden2(type='text' name='bidCurrentTime' value='0' hidden='')
+  .comingTable
+    table
+      thead
+        tr
+          th Check
+          th Name
+          th Category
+          th Deadline
+          th Status
+          th Delete
+          th(hidden='') Hidden Id
+      tbody
+        each item in list
+          if item.status != "Overdue"
+            tr.hover
+              td
+                if item.status == "Done"
+                  input.check(type="checkbox" name="check" id="check" checked)
+                else
+                  input.check(type="checkbox" name="check" id="check")
+              td
+                a(href="/todo/" + item.id) #{item.name}
+              td #{item.category}
+              td.tableDate #{item.deadline}
+              td.status #{item.status}
+              td.delete
+                input(type='image' src='/images/delete.png' alt="delete" value='Delete')
+              td.todoId(hidden='') #{item.id}

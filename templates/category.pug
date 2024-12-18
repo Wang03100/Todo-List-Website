@@ -1,0 +1,27 @@
+doctype html
+include mixin_nav.pug
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Watermelon Todo Category
+  link(href='/css/main.css' rel='stylesheet')
+  script(src='/js/category.js')
++nav(category, username)
+
+body
+.main
+  h1.Category Category List
+  .CategoryTable
+    table
+      thead
+        tr
+          th Category
+          th Options
+      tbody
+        each cat in category
+            if (cat.category != "All")
+                tr
+                    td.categoryName #{cat.category}
+                    td.delete
+                        input(type='image' src='/images/delete.png' alt="delete" value='Delete')

@@ -1,0 +1,15 @@
+doctype html
+include mixin_nav.pug
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Watermelon Account
+  link(href='/css/main.css' rel='stylesheet')
+  script(src='/js/account.js')
++nav(category, username)
+
+body
+.main
+    h1.account Sign Out
+    input.signout(type='submit' value="Sign Out")
